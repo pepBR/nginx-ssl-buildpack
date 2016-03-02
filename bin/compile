@@ -38,4 +38,5 @@ mkdir -p $build_dir/.profile.d
 echo 'PATH=$PATH:$HOME/nginx/sbin' > $build_dir/.profile.d/nginx_path.sh
 
 cd ..
+mkdir -p "$build_dir/bin/"
 cp bin/start-nginx "$build_dir/bin/"
