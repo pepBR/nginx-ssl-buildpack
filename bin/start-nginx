@@ -25,7 +25,7 @@ echo 'log directories initialized'
 	#We expect nginx to run in foreground.
 	#We also expect a socket to be at /tmp/nginx.socket.
 	echo 'starting nginx'
-	bin/nginx -p . -c config/nginx.conf
+	nginx -p . -c config/nginx.conf
 	echo 'nginx' >$psmgr
 ) &
 
