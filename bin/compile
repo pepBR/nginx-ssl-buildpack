@@ -9,7 +9,6 @@ set -e            # fail fast
 set -o pipefail   # don't ignore exit codes when piping output
 
 NGINX_VERSION=1.9.12
-PCRE_VERSION=8.21
 
 nginx_tarball_url=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 
@@ -20,7 +19,7 @@ env_dir=$3
 status "Downloading $nginx_tarball_url"
 curl -L $nginx_tarball_url | tar xzv
 
-status "Downloading $pcre_tarball_url"
+cd nginx-${NGINX_VERSION}
 
 status "Compiling nginx"
 ./configure \
