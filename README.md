@@ -7,7 +7,7 @@ This buildpack gives your app access to the `nginx` command compiled with SSL su
 Features
 ------
 
-* Downloads and compiles Nginx 1.5.7 with PCRE
+* Downloads and compiles Nginx 1.10.1
 * SSL support via `--with-http_ssl_module`
 * Adds `nginx` to your app's PATH
 * Additional files (mime.types, example configs, etc) are available at `$HOME/nginx` if you need them.
@@ -25,7 +25,7 @@ You can check out a complete "hello world" example app at [nginx-ssl-buildpack-e
 heroku create
 
 # Set the buildpack URL
-heroku config:set BUILDPACK_URL=https://github.com/ddgromit/nginx-ssl-buildpack
+heroku config:set BUILDPACK_URL=https://github.com/pepBR/nginx-ssl-buildpack
 ```
 
 After adding the buildpack, `nginx` will be available on your path.  It is the responsibility of your app and it's `Procfile` to call nginx with a `nginx.conf` that you've generated. 
