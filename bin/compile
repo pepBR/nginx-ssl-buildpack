@@ -8,4 +8,4 @@ status() {
 set -e            # fail fast
 set -o pipefail   # don't ignore exit codes when piping output
 
-apt-get install nginx
+sudo apt-get install nginx
