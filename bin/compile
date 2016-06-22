@@ -8,35 +8,4 @@ status() {
 set -e            # fail fast
 set -o pipefail   # don't ignore exit codes when piping output
 
-NGINX_VERSION=1.10.1
-
-nginx_tarball_url=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
-
-build_dir=$1
-cache_dir=$2
-env_dir=$3
-
-status "Downloading $nginx_tarball_url"
-curl -L $nginx_tarball_url | tar xzv
-
-cd nginx-${NGINX_VERSION}
-
-status "Compiling nginx"
-./configure \
-  --prefix=/app/nginx \
-  --with-http_ssl_module \
-  --with-http_stub_status_module
-
-status "Installing nginx"
-make install --silent
-
-# Copy the installation where it'll persist
-mv /app/nginx $build_dir/nginx
-
-# Add to PATH
-mkdir -p $build_dir/.profile.d
-echo 'PATH=$PATH:$HOME/nginx/sbin' > $build_dir/.profile.d/nginx_path.sh
-
-cd ..
-mkdir -p "$build_dir/bin/"
-cp bin/start-nginx "$build_dir/bin/"
+apt-get install nginx
